@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Header from './Header.js';
 
 import Search from './Search.js';
 
 import Gallery from './Gallery.js';
+
+import Filter from './Filter.js';
 
 
 import './App.css';
@@ -16,14 +20,6 @@ class App extends Component {
       countries: []
     }
   }
-
-//this gets all the data out of the API but what we need is the gallery to display - each country with 
-// 1. flag
-// 2. Country name
-// 3. population
-// 4. Region
-// 5. Capital
-
 
 componentDidMount() {
   const apiURL = "https://restcountries.eu/rest/v2/all";
@@ -42,7 +38,9 @@ componentDidMount() {
         <main>
           <section className="search_filter">
             <Search />
+            <Filter />
           </section>
+
 
           <Gallery countries={this.state.countries} />
 
